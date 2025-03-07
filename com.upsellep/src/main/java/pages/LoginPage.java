@@ -4,7 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import utils.AbstractComponents;
+
 public class LoginPage extends BasePage {
+	
+	private AbstractComponents	abstractcomponent = new AbstractComponents(); 
 	
 	@FindBy(id="user_login")
 	WebElement userNameField;
@@ -45,6 +49,7 @@ public class LoginPage extends BasePage {
 	
 	public void clickLoginButton() {
 		loginButton.click();
+		abstractcomponent.handleSecurityPopup();
 	}
 	
 	

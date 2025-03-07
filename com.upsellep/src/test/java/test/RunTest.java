@@ -1,10 +1,11 @@
 package test;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import pages.LoginPage;
+import pages.UpsellPage;
 import utils.ConfigData;
 import utils.DriverManager;
 
@@ -13,9 +14,9 @@ public class RunTest {
 	private WebDriver driver;
 	private ConfigData config;
 	private LoginPage loginpage;
+	private UpsellPage upsellpage;
 	
-	
-	@BeforeClass
+	@BeforeTest
 	public void setUp() {
 		config = new ConfigData();
 		driver = DriverManager.getDriver(driver);
@@ -25,10 +26,17 @@ public class RunTest {
 	
 	@Test (priority=1)
 	public void login() {
-		loginpage.enterUserName("username");
-		loginpage.enterPassword("password");
+		loginpage.enterUserName(config.getProperty("username"));
+		loginpage.enterPassword(config.getProperty("password"));
 		loginpage.clickLoginButton();
 	}
+	
+	@Test (priority=2)
+	public void upsell() {
+		upsellpage.clickUpsellMenu();
+		upsellpage.clickCampaignsTab();
+	}
+	
 	
 	
 }
