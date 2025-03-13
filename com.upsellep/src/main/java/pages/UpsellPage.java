@@ -6,10 +6,10 @@ import org.openqa.selenium.support.FindBy;
 
 public class UpsellPage extends BasePage {
 	
-	@FindBy(linkText="admin.php?page=checkout-upsell-woocommerce")
+	@FindBy(xpath="//div[text()='UpsellWP']")
 	WebElement upsellMenu;
 	
-	@FindBy(linkText="admin.php?page=checkout-upsell-woocommerce&tab=campaigns")
+	@FindBy(xpath="//li[@class='nav-item']/a[@href='admin.php?page=checkout-upsell-woocommerce&tab=campaigns']")
 	WebElement campaignsTab;
 	
 	

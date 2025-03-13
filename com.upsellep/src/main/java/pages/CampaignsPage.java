@@ -16,9 +16,10 @@ public class CampaignsPage extends BasePage {
 	
 	//div[@class='card-body py-1 px-4 text-center']/following-sibling::button/parent::a/div/h4[text()='Checkout Upsells']
 	//div[@class='card-body py-1 px-4 text-center']/following-sibling::button/parent::a/div/h4[text()='" + campaignname + "']
-	String campainsName = config.getProperty("campaignname");
+	//div[@class='card-body py-1 px-4 text-center']/following-sibling::button/parent::a//h4[contains(text(),'" + campaignname + "')]
+	String campaignsName = config.getProperty("campaigns");
 	
-	//tr[@data-title='Email Upsell']/td/div
+	//tr[@data-title='Email Upsell']/td/div/input[@name='enabled']
 	
 	
 	public CampaignsPage(WebDriver driver) {
@@ -27,8 +28,9 @@ public class CampaignsPage extends BasePage {
 	
 	public void createCampaigns() {
 		createCampaignButton.click();
-		WebElement campaings = driver.findElement(By.xpath("//div[@class='card-body py-1 px-4 text-center']/following-sibling::button/parent::a/div/h4[text()='\" + campaignname + \"']"));
-		campaings.click();
+		//WebElement campaigns = driver.findElement(By.xpath("//div[@class='card-body py-1 px-4 text-center']/following-sibling::button/parent::a/div/h4[text()='Checkout Upsells']"));
+		WebElement campaigns = driver.findElement(By.xpath("//div[@class='card-body py-1 px-4 text-center']/following-sibling::button/parent::a/div/h4[text()='" + campaignsName + "']"));
+		campaigns.click();
 	}
 	
 	

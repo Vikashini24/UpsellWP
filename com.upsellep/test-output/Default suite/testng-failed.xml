@@ -6,7 +6,8 @@
       <class name="test.RunTest">
         <methods>
           <include name="setUp"/>
-          <include name="login"/>
+          <include name="tearDown"/>
+          <include name="upsell"/>
         </methods>
       </class> <!-- test.RunTest -->
     </classes>
