@@ -19,9 +19,29 @@ public class CheckoutUpsell extends BasePage {
 	@FindBy(id="offer-display-method")
 	WebElement displayMethodDropdown;
 	
+	@FindBy(id="cuw-offers")
+	WebElement offersList;
 	
+	@FindBy(id="offer-add")
+	WebElement addOfferButton;
 	
+	@FindBy(id="offer-product")
+	WebElement chooseProductField;
 	
+	@FindBy(id="offer-product-qty")
+	WebElement quantityField;
+	
+	@FindBy(id="offer-discount-type")
+	WebElement discountTypeDropdown;
+	
+	@FindBy(id="offer-discount-value")
+	WebElement discountValueField;
+	
+	@FindBy(id="offer-limit")
+	WebElement overallUsageLimitField;
+	
+	@FindBy(id="offer-limit-per-user")
+	WebElement usageLimitPerCustomerField;
 	
 	
 	public CheckoutUpsell(WebDriver driver) {
