@@ -3,6 +3,7 @@ package pages;
 import java.util.List;
 
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -72,10 +73,15 @@ public class CheckoutUpsell extends BasePage {
 		dropdown.selectByValue("all");
 	}
 	
-	public void listOfOffers() {
+	public void addOffers() {
 		int offerCount = offersList.size();
 		if(offerCount<10) {
 			addOfferButton.click();
+			chooseProductField.sendKeys(config.getProperty("product1"));
+			chooseProductField.sendKeys(Keys.ENTER);
+			Select dropdown = new Select(discountTypeDropdown);
+			dropdown.selectByValue("percentage");
+			discountValueField.sendKeys(config.getProperty("percentagediscount"));
 		}
 		
 	}
