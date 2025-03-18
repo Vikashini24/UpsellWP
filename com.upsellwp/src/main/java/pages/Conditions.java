@@ -49,6 +49,12 @@ public class Conditions extends BasePage{
 	@FindBy(name="conditions[1742281506484][values][to]")
 	WebElement toTimeField;
 	
+	@FindBy(id="slider-condition-add")
+	WebElement conditionSaveButton;
+	
+	@FindBy(id="cuw-condition-close")
+	WebElement conditionCloseButton;
+	
 	
 	public Conditions(WebDriver driver) {
 		super(driver);
@@ -475,7 +481,17 @@ public class Conditions extends BasePage{
 		orderStatusField.sendKeys(Keys.ENTER);
 	}
 	
+	//Save button
+	public void clickConditionSaveButton() {
+		if(conditionSaveButton.isDisplayed()) {
+			conditionSaveButton.click();
+		}
+	}
 	
+	//Close button
+	public void clickConditionCloseButton() {
+		conditionCloseButton.click();
+	}
 	
 	
 }

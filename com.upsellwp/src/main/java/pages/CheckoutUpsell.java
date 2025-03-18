@@ -15,6 +15,7 @@ public class CheckoutUpsell extends BasePage {
 	
 	CampaignsPage campaignspage = new CampaignsPage(driver);
 	ConfigData config = new ConfigData();
+	Select dropdown;
 	
 	@FindBy(xpath="//span[text()='Checkout Upsells']")
 	WebElement campaignNameText;
@@ -55,6 +56,7 @@ public class CheckoutUpsell extends BasePage {
 	
 	public CheckoutUpsell(WebDriver driver) {
 		super(driver);
+		dropdown = new Select(discountTypeDropdown);
 	}
 	
 	public void enterCampaignName() {
@@ -79,7 +81,6 @@ public class CheckoutUpsell extends BasePage {
 			addOfferButton.click();
 			chooseProductField.sendKeys(config.getProperty("product1"));
 			chooseProductField.sendKeys(Keys.ENTER);
-			Select dropdown = new Select(discountTypeDropdown);
 			dropdown.selectByValue("percentage");
 			discountValueField.sendKeys(config.getProperty("percentagediscount"));
 		}
