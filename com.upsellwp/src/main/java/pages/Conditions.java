@@ -1,5 +1,8 @@
 package pages;
 
+import java.util.Iterator;
+
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,13 +37,25 @@ public class Conditions extends BasePage{
 	@FindBy(xpath="//div[@class='condition-values']/select")
 	WebElement orderStatusField;
 	
+	@FindBy(xpath="//ul/li/input[@placeholder=' Choose products']")
+	WebElement specificProductsField;
+	
+	@FindBy(xpath="//ul/li/input[@placeholder=' Choose users']")
+	WebElement chooseUserField;
+	
+	@FindBy(name="conditions[1742281506484][values][from]")
+	WebElement fromTimeField;
+	
+	@FindBy(name="conditions[1742281506484][values][to]")
+	WebElement toTimeField;
+	
 	
 	public Conditions(WebDriver driver) {
 		super(driver);
 		conditionsdropdown = new Select(chooseConditionDropdown);
 		conditionsListDropdown = new Select(chooseConditionsListDrodown);
 		lineItemNumberListDropdown = new Select(chooseLineItemNumberList);
-		//orderStatusDropdown = new 
+		orderStatusDropdown = new Select(orderStatusField); 
 	}
 	
 	public void addCondition() {
@@ -319,10 +334,148 @@ public class Conditions extends BasePage{
 	}
 	
 	//OrderStatus
+	public void pendingPayment() {
+		orderStatusDropdown.selectByVisibleText("Pending payment");
+	}
+	
+	public void processing() {
+		orderStatusDropdown.selectByVisibleText("Processing");
+	}
+	
+	public void onHold() {
+		orderStatusDropdown.selectByVisibleText("On hold");
+	}
+	
+	public void completed() {
+		orderStatusDropdown.selectByVisibleText("Completed");
+	}
+	
+	public void cancelled() {
+		orderStatusDropdown.selectByVisibleText("Cancelled");
+	}
+	
+	public void refunded() {
+		orderStatusDropdown.selectByVisibleText("Refunded");
+	}
+	
+	public void failed() {
+		orderStatusDropdown.selectByVisibleText("Failed");
+	}
+	
+	public void draft() {
+		orderStatusDropdown.selectByVisibleText("Draft");
+	}
+	
+	//Number of orders made with specific products
+	public void enterSpecificProducts() {
+		specificProductsField.sendKeys(config.getProperty("specificproduct"));
+		specificProductsField.sendKeys(Keys.ENTER);
+	}
+	
+	public void enterValue() {
+		totalAmountField.sendKeys(config.getProperty("value"));
+	}
+	
+	//User role - choose roles
+	public void admin() {
+		orderStatusDropdown.selectByVisibleText("Administrator");
+	}
+	
+	public void editor() {
+		orderStatusDropdown.selectByVisibleText("Editor");
+	}
+	
+	public void author() {
+		orderStatusDropdown.selectByVisibleText("Author");
+	}
+	
+	public void contributor() {
+		orderStatusDropdown.selectByVisibleText("Contributor");
+	}
+	
+	public void subscriber() {
+		orderStatusDropdown.selectByVisibleText("Subscriber");
+	}
+	
+	public void customer() {
+		orderStatusDropdown.selectByVisibleText("Customer");
+	}
+	
+	public void shopManager() {
+		orderStatusDropdown.selectByVisibleText("Shop manager");
+	}
+	
+	public void translator() {
+		orderStatusDropdown.selectByVisibleText("Translator");
+	}
+	
+	public void affiliate() {
+		orderStatusDropdown.selectByVisibleText("Affiliate");
+	}
+	
+	public void guest() {
+		orderStatusDropdown.selectByVisibleText("Guest");
+	}
+	
+	//Specific user - choose users
+	public void enterChooseUsers() {
+		chooseUserField.sendKeys(config.getProperty("users"));
+		chooseUserField.sendKeys(Keys.ENTER);
+	}
+	
+	//Time
+	public void timeIn() {
+		conditionsListDropdown.selectByVisibleText("In");
+	}
+	
+	public void timeNotIn() {
+		conditionsListDropdown.selectByVisibleText("Not In");
+	}
+	
+	public void enterFromTime() {
+		fromTimeField.sendKeys(config.getProperty("fromtime"));
+	}
+	
+	public void enterToTime() {
+		toTimeField.sendKeys(config.getProperty("totime"));
+	}
+	
+	//Days - choose days
+	public void sunday() {
+		orderStatusDropdown.selectByVisibleText("Sunday");
+	}
+	
+	public void monday() {
+		orderStatusDropdown.selectByVisibleText("Monday");
+	}
+	
+	public void tuesday() {
+		orderStatusDropdown.selectByVisibleText("Tuesday");
+	}
+	
+	public void wednesday() {	
+		orderStatusDropdown.selectByVisibleText("Wednesday");
+	}
+	
+	public void thursday() {
+		orderStatusDropdown.selectByVisibleText("Thursday");
+	}
+	
+	public void friday() {
+		orderStatusDropdown.selectByVisibleText("Friday");
+	}
+	
+	public void saturday() {
+		orderStatusDropdown.selectByVisibleText("Saturday");
+	}
+	
+	//Brands - choose taxonomies
+	public void enterTaxonomy() {
+		orderStatusField.sendKeys(config.getProperty("taxonomy"));
+		orderStatusField.sendKeys(Keys.ENTER);
+	}
 	
 	
-	 
-	 
 	
 	
 }
