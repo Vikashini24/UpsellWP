@@ -11,7 +11,7 @@ public class ConfigData {
 	
 	public ConfigData() {
 		try {
-			fis = new FileInputStream("/home/cartrabbit/eclipse-workspace/UpsellWP/com.upsellep/src/main/java/resources/data.properties");
+			fis = new FileInputStream("D:\\Eclipse_WorkSpace\\UpsellWP\\com.upsellwp\\src\\main\\java\\resources\\data.properties");
 			property = new Properties();
 			property.load(fis);
 		}catch(IOException e) {
